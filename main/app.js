@@ -55,10 +55,35 @@ app.get('/registration',function(req,res){
 app.post('/',function(req,res){
   var user ={username:req.body.username,password:req.body.password};
   var x=JSON.stringify(user);
- fs.appendFileSync('base.json',x);
+ fs.writeFileSync('base.json',x);
   res.render('home');
 });
-app.listen(3000);
+app.post('/register',function(req,res){
+  var name =req.body.username;
+  var pass=req.body.password;
+  const data = fs.readFileSync(path.join('base.json'));
+  const users = JSON.parse(data);
 
+  if(databaseContainsUsername(name))
+  console.log("koko");
+  else{
+  var newuser={username:name,password:pass};
+  users.array.push(newuser);
+  var newusers=JSON.stringify(users);
+  fs.writeFileSync('base.json',newusers);
+  res.render('home');}
+});
+app.listen(3000);
 module.exports = app;
-console.log();
+function databaseContainsUsername(username) {
+
+  const data = fs.readFileSync(path.join('base.json'));
+  const users = JSON.parse(data);
+  const array=users.array;
+  for (const user in array) {
+      if (user.username===username)
+          return true;
+  }
+  return false;
+}
+
