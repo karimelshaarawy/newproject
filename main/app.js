@@ -3,16 +3,26 @@ var express = require('express');
 var path = require('path');
 var fs = require('fs');
 const { json } = require('express');
+
+
+//setting up server
 var app = express();
+app.listen(3000);
+
+//controllers 
+const loginController = require('./controllers/loginController');
+const signUpController = require('./controllers/signUpController');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//get requests
 app.get('/', function (req, res) {
   res.render('login');
 });
@@ -38,7 +48,7 @@ app.get('/grapes', function (req, res) {
   res.render('grapes');
 });
 app.get('/home', function (req, res) {
-  res.render('home');
+  res.render('home', { alert: "false" });
 });
 app.get('/leaves', function (req, res) {
   res.render('leaves');
@@ -52,41 +62,18 @@ app.get('/sun', function (req, res) {
 app.get('/registration', function (req, res) {
   res.render('registration');
 });
-app.post('/', function (req, res) {
-  var user = { username: req.body.username, password: req.body.password };
-  var x = JSON.stringify(user);
-  fs.writeFileSync('base.json', x);
-  res.render('home');
-});
 
+//error 404 : when trying to access page that doesn't exist
+app.use((req, res) => {
+  res.send("error 404 page does not exist");
+})
+//
 
-app.post('/register', function (req, res) {
-  var name = req.body.username;
-  var pass = req.body.password;
-  const data = fs.readFileSync(path.join('base.json'));
-  const users = JSON.parse(data);
+//post requets
 
-  if (databaseContainsUsername(name))
-    console.log("koko");
-  else {
-    var newuser = { username: name, password: pass };
-    users.array.push(newuser);
-    var newusers = JSON.stringify(users);
-    fs.writeFileSync('base.json', newusers);
-    res.render('home');
-  }
-});
-app.listen(3000);
+app.post('/', loginController);
+app.post('/register', signUpController);
 module.exports = app;
-function databaseContainsUsername(username) {
 
-  const data = fs.readFileSync(path.join('base.json'));
-  const users = JSON.parse(data);
-  const array = users.array;
-  for (var i = 0; i < array.length; i++) {
-    if (array[i].username === username)
-      return true;
-  }
-  return false;
-}
+
 
