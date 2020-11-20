@@ -1,3 +1,7 @@
+var fs = require('fs');
+var path = require('path');
+
+
 function signUpController(req, res) {
     var name = req.body.username;
     var pass = req.body.password;

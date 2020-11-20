@@ -1,3 +1,7 @@
+var fs = require('fs');
+var path = require('path');
+
+
 function loginController(req, res) {
     const user = req.body;
     if (authenticateCredentials(user)) {
