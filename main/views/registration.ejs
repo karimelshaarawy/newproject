@@ -20,6 +20,11 @@
             color: white;
             -webkit-text-stroke: 0.5px black;
         }
+        #alert_box {
+            font-size: 1.3em;
+            font-family: monospace;
+            color: red;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,6 +39,11 @@
         <h1>Registration</h1>
     </div>
     <div class="cont">
+        <% if (alertDiv) { %>
+            <div id="alert_box">
+                This username is already taken
+            </div>
+            <% } %>
         <form method='post' action='/register'>
             Username: <br>
             <input type="text" id="user" name="username"> <br>

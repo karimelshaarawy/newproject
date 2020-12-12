@@ -46,7 +46,7 @@ app.get('/grapes', function (req, res) {
   res.render('grapes');
 });
 app.get('/home', function (req, res) {
-  res.render('home', { alert: "false" });
+  res.render('home');
 });
 app.get('/leaves', function (req, res) {
   res.render('leaves');
@@ -58,7 +58,7 @@ app.get('/sun', function (req, res) {
   res.render('sun');
 });
 app.get('/registration', function (req, res) {
-  res.render('registration');
+  res.render('registration', { alertDiv: false });
 });
 
 //error 404 : when trying to access page that doesn't exist

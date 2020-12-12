@@ -9,13 +9,13 @@ function signUpController(req, res) {
     const users = JSON.parse(data);
 
     if (databaseContainsUsername(name))
-        console.log("koko");
+    res.render('registration', { alertDiv: true });
     else {
         var newuser = { username: name, password: pass };
         users.array.push(newuser);
         var newusers = JSON.stringify(users);
         fs.writeFileSync('base.json', newusers);
-        res.render('home', { alert: "false" });
+        res.render('home');
     }
 }
 
