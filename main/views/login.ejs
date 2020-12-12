@@ -21,6 +21,12 @@
             top: 50px;
             color: white;
         }
+
+        #alert_box {
+            font-size: 1.3em;
+            font-family: monospace;
+            color: red;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,15 +36,23 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <script>
-    function cookies(){
-        document.cookie=document.myform.username.value;
+
+
+    function cookies() {
+        document.cookie = document.myform.username.value;
     }
 </script>
+
 <body>
     <div class="container">
         <h1>Welcome</h1>
     </div>
     <div class="cont">
+        <% if (alertDiv) { %>
+        <div id="alert_box">
+            Wrong Username or password
+        </div>
+        <% } %>
         <form method="POST" name="myform">
             Username:<br>
             <input type="text" name="username">
@@ -52,5 +66,6 @@
         <a href="registration">I dont have an account</a>
     </div>
 </body>
+
 
 </html>

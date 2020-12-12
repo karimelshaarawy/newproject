@@ -6,10 +6,10 @@ function loginController(req, res) {
     const user = req.body;
     if (authenticateCredentials(user)) {
         //write jwt
-        res.render('home', { alert: "false" });
+        res.render('home', { alertDiv: false });
     }
     else {
-        res.render('home', { alert: "true" })
+        res.render('login', { alertDiv: true })
     }
 }
 

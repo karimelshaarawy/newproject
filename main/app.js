@@ -1,8 +1,6 @@
 
 var express = require('express');
 var path = require('path');
-var fs = require('fs');
-const { json } = require('express');
 
 
 //setting up server
@@ -24,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //get requests
 app.get('/', function (req, res) {
-  res.render('login');
+  res.render('login', { alertDiv: false });
 });
 app.get('/novel', function (req, res) {
   res.render('novel');
