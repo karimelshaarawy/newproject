@@ -112,10 +112,13 @@
             style="width: 300px;">Want to Read List</button>
     </div>
     <script>
-        if (document.cookies) {
-            const readListDiv = document.querySelector('div.readlist');
-            readListDiv.classList.remove('invisible');
-        }
+        (function showReadListIfAuthorized() {
+            console.log("dsfdsg");
+            if (document.cookie) {
+                const readListDiv = document.querySelector('div.readlist');
+                readListDiv.classList.remove('invisible');
+            }
+        })();
     </script>
 </body>
 
