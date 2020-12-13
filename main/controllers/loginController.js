@@ -5,8 +5,8 @@ var path = require('path');
 function loginController(req, res) {
     const user = req.body;
     if (authenticateCredentials(user)) {
-        //write jwt
-        res.render('home');
+        res.cookie("username", user.username);
+        res.render('home', { authorized: true });
     }
     else {
         res.render('login', { alertDiv: true })

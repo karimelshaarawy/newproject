@@ -49,6 +49,10 @@
             left: 80px;
             top: 370px;
         }
+
+        .invisible {
+            display: none;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,10 +106,17 @@
         <br>
         <button onclick="location.href = '/fiction';" id="fiction" class="btn btn-secondary ml-3"> View </button>
     </div>
-    <div class="readlist">
+
+    <div class="readlist invisible">
         <button onclick="location.href = '/readlist';" id="readlist" class="btn btn-secondary ml-3"
             style="width: 300px;">Want to Read List</button>
     </div>
+    <script>
+        if (document.cookies) {
+            const readListDiv = document.querySelector('div.readlist');
+            readListDiv.classList.remove('invisible');
+        }
+    </script>
 </body>
 
 </html>
