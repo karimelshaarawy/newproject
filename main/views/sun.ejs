@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
         body {
@@ -7,17 +8,20 @@
             background-repeat: no-repeat;
             background-size: 100%;
         }
+
         h1 {
             color: white;
             text-align: center;
             -webkit-text-stroke: 1px blue;
         }
+
         .container1 {
             position: fixed;
             left: 50px;
             top: 150px;
             color: white;
         }
+
         .container2 {
             position: fixed;
             left: 300px;
@@ -27,6 +31,7 @@
             text-align: justify;
             text-justify: inter-word;
         }
+
         .video {
             position: fixed;
             left: 700px;
@@ -36,11 +41,13 @@
             text-align: justify;
             text-justify: inter-word;
         }
+
         .readlist {
             position: fixed;
             left: 30px;
             top: 470px;
         }
+
         #my {
             zoom: 110%;
         }
@@ -74,10 +81,13 @@
         <img id="image" src="/sun.jpg" width="193" height="300">
     </div>
     <div class="container2">
-        From Rupi Kaur, the #1 New York Times bestselling author of milk and honey, comes her long-awaited second collection of poetry. A vibrant and transcendent journey about growth and healing. Ancestry and honoring one’s roots. Expatriation and rising up to find a home within yourself.
+        From Rupi Kaur, the #1 New York Times bestselling author of milk and honey, comes her long-awaited second
+        collection of poetry. A vibrant and transcendent journey about growth and healing. Ancestry and honoring one’s
+        roots. Expatriation and rising up to find a home within yourself.
     </div>
     <div class="readlist">
-        <button id="readlist" class="btn btn-secondary ml-3">Add to Want to Read List</button>
+        <button id="readlist" class="btn btn-secondary ml-3" onclick="addToReadList('sun')">Add to Want to Read
+            List</button>
     </div>
     <div class="video">
         <video width="480" height="360" controls>
@@ -85,4 +95,5 @@
         </video>
     </div>s
 </body>
+
 </html>

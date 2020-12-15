@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
         body {
@@ -13,12 +14,14 @@
             text-align: center;
             -webkit-text-stroke: 1px blue;
         }
+
         .container1 {
             position: fixed;
             left: 50px;
             top: 150px;
             color: white;
         }
+
         .container2 {
             position: fixed;
             left: 300px;
@@ -28,6 +31,7 @@
             text-align: justify;
             text-justify: inter-word;
         }
+
         .video {
             position: fixed;
             left: 700px;
@@ -37,11 +41,13 @@
             text-align: justify;
             text-justify: inter-word;
         }
+
         .readlist {
             position: fixed;
             left: 30px;
             top: 470px;
         }
+
         #my {
             zoom: 110%;
         }
@@ -53,6 +59,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+<script src="/scripts/addToReadList.js"></script>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
@@ -75,10 +82,12 @@
         <img id="image" src="/leaves.jpg" width="193" height="300">
     </div>
     <div class="container2">
-        A poetry collection by American poet Walt Whitman (1819–1892), each poem of which is loosely connected and represents the celebration of his philosophy of life and humanity.
+        A poetry collection by American poet Walt Whitman (1819–1892), each poem of which is loosely connected and
+        represents the celebration of his philosophy of life and humanity.
     </div>
     <div class="readlist">
-        <button id="readlist" class="btn btn-secondary ml-3">Add to Want to Read List</button>
+        <button id="readlist" class="btn btn-secondary ml-3" onclick="addToReadList('leaves')">Add to Want to Read
+            List</button>
     </div>
     <div class="video">
         <video width="480" height="360" controls>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
         body {
@@ -7,17 +8,20 @@
             background-repeat: no-repeat;
             background-size: 100%;
         }
+
         h1 {
             color: white;
             text-align: center;
             -webkit-text-stroke: 1px blue;
         }
+
         .container1 {
             position: fixed;
             left: 50px;
             top: 150px;
             color: white;
         }
+
         .container2 {
             position: fixed;
             left: 300px;
@@ -27,6 +31,7 @@
             text-align: justify;
             text-justify: inter-word;
         }
+
         .video {
             position: fixed;
             left: 700px;
@@ -36,11 +41,13 @@
             text-align: justify;
             text-justify: inter-word;
         }
+
         .readlist {
             position: fixed;
             left: 30px;
             top: 470px;
         }
+
         #my {
             zoom: 110%;
         }
@@ -52,6 +59,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+<script src="/scripts/addToReadList.js"></script>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
         <a class="navbar-brand" style="color: rgb(191, 255, 161)">The Grapes of Wrath</a>
@@ -73,10 +82,13 @@
         <img id="image" src="/grapes.jpg" width="193" height="300">
     </div>
     <div class="container2">
-        First published in 1939, Steinbeck’s Pulitzer Prize-winning epic of the Great Depression chronicles the Dust Bowl migration of the 1930s and tells the story of one Oklahoma farm family, the Joads—driven from their homestead and forced to travel west to the promised land of California.
+        First published in 1939, Steinbeck’s Pulitzer Prize-winning epic of the Great Depression chronicles the Dust
+        Bowl migration of the 1930s and tells the story of one Oklahoma farm family, the Joads—driven from their
+        homestead and forced to travel west to the promised land of California.
     </div>
     <div class="readlist">
-        <button id="readlist" class="btn btn-secondary ml-3">Add to Want to Read List</button>
+        <button id="readlist" class="btn btn-secondary ml-3" onclick="addToReadList('grapes')">Add to Want to Read
+            List</button>
     </div>
     <div class="video">
         <video width="480" height="360" controls>
@@ -84,4 +96,5 @@
         </video>
     </div>
 </body>
+
 </html>
