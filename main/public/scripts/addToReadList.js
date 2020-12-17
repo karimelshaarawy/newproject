@@ -4,6 +4,5 @@ function addToReadList(bookName) {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         bookName,
-        hi: "fuck you"
     }));
 }
