@@ -66,10 +66,7 @@ app.get('/registration', function (req, res) {
 });
 
 //error 404 : when trying to access page that doesn't exist
-// app.use((req, res) => {
-//   res.send("error 404 page does not exist");
-// })
-//
+
 
 //post requets
 app.post('/addbook', function (req, res) {
@@ -94,6 +91,10 @@ app.post('/addbook', function (req, res) {
 app.post('/', loginController);
 app.post('/register', signUpController);
 module.exports = app;
+
+app.use((req, res) => {
+  res.send("error 404 page does not exist");
+})
 
 
 

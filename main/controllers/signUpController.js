@@ -9,14 +9,14 @@ function signUpController(req, res) {
     const users = JSON.parse(data);
 
     if (databaseContainsUsername(name))
-    res.render('registration', { alertDiv: true });
+        res.render('registration', { alertDiv: true });
     else {
-        var newuser = { username: name, password: pass, books:[] };
+        var newuser = { username: name, password: pass, books: [] };
         users.array.push(newuser);
         var newusers = JSON.stringify(users);
         fs.writeFileSync('base.json', newusers);
         res.cookie("username", name);
-        res.render('home', { authorized: true });
+        res.redirect('/');
     }
 }
 
