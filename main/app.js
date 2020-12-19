@@ -73,13 +73,13 @@ app.post('/addbook', function (req, res) {
   const book = req.body.bookName;
   var user = req.cookies;
   var username = user.username;
-  console.log(username);
   const data = fs.readFileSync(path.join('base.json'));
   const users = JSON.parse(data);
   const array = users.array;
   for (var i = 0; i < array.length; i++) {
     if (array[i].username === username)
-      array[i].books.push(book);
+      if(!array[i].books.includes(book))  
+        array[i].books.push(book);
   }
   var newusers = JSON.stringify(users);
   fs.writeFileSync('base.json', newusers);
@@ -91,6 +91,22 @@ app.post('/addbook', function (req, res) {
 app.post('/', loginController);
 app.post('/register', signUpController);
 module.exports = app;
+const booknames=['dune','lord of the flies','the grapes of wrath','leaves of grass','the sun and her flowers','to kill a mockingbird'];
+app.post('/search',function(req,res){
+  var search =req.body.Search;
+  var results=searchResults(search);
+  console.log(results);
+  res.render('searchresults');
+})
+
+function searchResults( key){
+var results=[];
+var key2=key.toLowerCase();
+for(var i=0;i<booknames.length;i++)
+if((booknames[i]).includes(key2))
+results.push(booknames[i]);
+return results;
+}
 
 app.use((req, res) => {
   res.send("error 404 page does not exist");
