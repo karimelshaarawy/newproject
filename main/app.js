@@ -13,6 +13,7 @@ app.listen(3000);
 const loginController = require('./controllers/loginController');
 const signUpController = require('./controllers/signUpController');
 const addBookController = require('./controllers/addBookController');
+const searchController = require('./controllers/searchController')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -67,14 +68,15 @@ app.get('/registration', function (req, res) {
 
 
 //post requets
-app.post('/addbook', addBookController(req, res));
+app.post('/addbook', addBookController);
 app.post('/', loginController);
 app.post('/register', signUpController);
-module.exports = app;
+app.post('/search', searchController)
 
 app.use((req, res) => {
   res.send("error 404 page does not exist");
 })
 
 
+module.exports = app;
 
