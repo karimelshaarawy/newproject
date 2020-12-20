@@ -14,6 +14,7 @@ const loginController = require('./controllers/loginController');
 const signUpController = require('./controllers/signUpController');
 const addBookController = require('./controllers/addBookController');
 const searchController = require('./controllers/searchController')
+const readlistController = require('./controllers/readlistController');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -36,9 +37,7 @@ app.get('/fiction', function (req, res) {
 app.get('/poetry', function (req, res) {
   res.render('poetry');
 });
-app.get('/readlist', function (req, res) {
-  res.render('readlist');
-});
+app.get('/readlist', readlistController);
 app.get('/dune', function (req, res) {
   res.render('dune');
 });

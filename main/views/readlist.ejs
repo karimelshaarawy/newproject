@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
         body {
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
         <a class="navbar-brand" style="color: rgb(191, 255, 161)">Want to Read List</a>
@@ -38,5 +40,63 @@
             </form>
         </div>
     </nav>
+    <div id="readlist_container">
+        <% readList.forEach(function(element){ %>
+        <% if(element==='dune'){%>
+        <!-- <div> -->
+        <a href="/dune">
+            <img id="image" src="/dune.jpg" width="193" height="300">
+        </a>
+        <!-- </div> -->
+
+        <% } %>
+        <% if(element==='lord of the flies'){%>
+        <!-- <div> -->
+        <a href="/flies">
+            <img id="image" src="/flies.jpg" width="193" height="300">
+        </a>
+
+        <!-- </div> -->
+
+        <% } %>
+        <% if(element==='the grapes of wrath'){%>
+        <!-- <div> -->
+        <a href="/flies">
+            <img id="image" src="/grapes.jpg" width="193" height="300">
+        </a>
+        <!-- </div> -->
+
+        <% } %>
+        <% if(element==='leaves of grass'){%>
+        <!-- <div> -->
+        <a href="/flies"></a>
+        <img id="image" src="/leaves.jpg" width="193" height="300">
+        </a>
+        <!-- </div> -->
+
+        <% } %>
+        <% if(element==='the sun and her flowers'){%>
+        <!-- <div> -->
+        <a href="/sun">
+            <img id="image" src="/sun.jpg" width="193" height="300">
+        </a>
+        <!-- </div> -->
+
+        <% } %>
+
+        <% if(element==='to kill a mockingbird'){%>
+        <!-- <div> -->
+        <a href="/mockingbird">
+            <img id="image" src="/mockingbird.jpg" width="193" height="300">
+        </a>
+        <!-- </div> -->
+
+        <% } %>
+
+
+        <% }) %>
+
+    </div>
 </body>
+
 </html>
