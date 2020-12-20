@@ -2,8 +2,6 @@
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var fs = require('fs');
-var path = require('path');
 
 //setting up server
 var app = express();
@@ -14,7 +12,7 @@ app.listen(3000);
 //controllers 
 const loginController = require('./controllers/loginController');
 const signUpController = require('./controllers/signUpController');
-
+const addBookController = require('./controllers/addBookController');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -69,25 +67,7 @@ app.get('/registration', function (req, res) {
 
 
 //post requets
-app.post('/addbook', function (req, res) {
-  const book = req.body.bookName;
-  var user = req.cookies;
-  var username = user.username;
-  console.log(username);
-  const data = fs.readFileSync(path.join('base.json'));
-  const users = JSON.parse(data);
-  const array = users.array;
-  for (var i = 0; i < array.length; i++) {
-    if (array[i].username === username)
-      array[i].books.push(book);
-  }
-  var newusers = JSON.stringify(users);
-  fs.writeFileSync('base.json', newusers);
-  res.render(book);
-})
-
-
-
+app.post('/addbook', addBookController(req, res));
 app.post('/', loginController);
 app.post('/register', signUpController);
 module.exports = app;
