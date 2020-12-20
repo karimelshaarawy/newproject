@@ -4,16 +4,15 @@ const booknames = ['dune', 'lord of the flies', 'the grapes of wrath', 'leaves o
 function searchController(req, res) {
     var search = req.body.Search;
     var results = searchResults(search);
-    console.log(results);
-    res.render('searchresults');
+    res.render('searchresults', { results });
 }
 
 
-function searchResults(key) {
+function searchResults(keyword) {
     var results = [];
-    var key2 = key.toLowerCase();
+    var keywordLowerCase = keyword.toLowerCase();
     for (var i = 0; i < booknames.length; i++)
-        if ((booknames[i]).includes(key2))
+        if ((booknames[i]).includes(keywordLowerCase))
             results.push(booknames[i]);
     return results;
 }
