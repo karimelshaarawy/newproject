@@ -42,6 +42,10 @@
     </nav>
 
     <div id="results_container">
+        <% if (results.length==0) {%>
+            <h3> Book not found </h3> 
+           <% } %> 
+
         <% results.forEach(function(element){ %>
         <% if(element==='dune'){%>
         <!-- <div> -->
@@ -62,7 +66,7 @@
         <% } %>
         <% if(element==='the grapes of wrath'){%>
         <!-- <div> -->
-        <a href="/flies">
+        <a href="/grapes">
             <img id="image" src="/grapes.jpg" width="193" height="300">
         </a>
         <!-- </div> -->
@@ -70,7 +74,7 @@
         <% } %>
         <% if(element==='leaves of grass'){%>
         <!-- <div> -->
-        <a href="/flies"></a>
+        <a href="/leaves">
         <img id="image" src="/leaves.jpg" width="193" height="300">
         </a>
         <!-- </div> -->

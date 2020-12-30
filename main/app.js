@@ -39,7 +39,7 @@ app.get('/poetry', function (req, res) {
 });
 app.get('/readlist', readlistController);
 app.get('/dune', function (req, res) {
-  res.render('dune');
+  res.render('dune',{found:false});
 });
 app.get('/flies', function (req, res) {
   res.render('flies');
