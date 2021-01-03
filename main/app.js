@@ -42,22 +42,22 @@ app.get('/dune', function (req, res) {
   res.render('dune',{found:false});
 });
 app.get('/flies', function (req, res) {
-  res.render('flies');
+  res.render('flies',{found:false});
 });
 app.get('/grapes', function (req, res) {
-  res.render('grapes');
+  res.render('grapes',{found:false});
 });
 app.get('/home', function (req, res) {
   res.render('home', { authorized: false });
 });
 app.get('/leaves', function (req, res) {
-  res.render('leaves');
+  res.render('leaves',{found:false});
 });
 app.get('/mockingbird', function (req, res) {
-  res.render('mockingbird');
+  res.render('mockingbird',{found:false});
 });
 app.get('/sun', function (req, res) {
-  res.render('sun');
+  res.render('sun',{found:false});
 });
 app.get('/registration', function (req, res) {
   res.render('registration', { alertDiv: false });

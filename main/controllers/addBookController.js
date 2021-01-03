@@ -20,7 +20,7 @@ function addBook(req, res) {
     fs.writeFileSync('base.json', newusers);
     if(flag){
     res.render(book,{ found:true});
-     console.log("lolo");}
+     }
     else
     res.render(book,{found:false})
 }
