@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 //setting up server
 var app = express();
 app.use(cookieParser());
-app.listen(3000);
+
 
 
 //controllers 
@@ -75,7 +75,11 @@ app.post('/search', searchController)
 app.use((req, res) => {
   res.send("error 404 page does not exist");
 })
-
+if(process.env.PORT){
+  app.listen(process.env.PORT,function(){console.log("Server started")});
+}else{
+  app.listen(3000,function(){console.log("Server started on port 3000")});
+}
 
 module.exports = app;
 

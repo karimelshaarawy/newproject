@@ -51,6 +51,9 @@
         #my {
             zoom: 110%;
         }
+        #book_name {
+            display: none;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,17 +65,7 @@
 <script src="/scripts/addToReadList.js"></script>
 
 <body>
-    <% if (found) { %>
-    <!-- <div>
-        Heerrerererere
-    </div> -->
-    <script>
-        (function showAlertForBookNotFound() {
-            alert("Book not found");
-        }
-        )();
-    </script>
-    <% } %>
+  
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
         <a class="navbar-brand" style="color: rgb(191, 255, 161)">Dune</a>
@@ -99,7 +92,9 @@
         life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for.
     </div>
     <div class="readlist">
-        <button id="readlist" class="btn btn-secondary ml-3" onclick="addToReadList('dune')" type="submit">Add to Want
+        <form method="POST" action="/addbook"  >
+            <input type="text" id="book_name" name="bookName" value="dune" readonly>
+        <button id="readlist" class="btn btn-secondary ml-3" type="submit">Add to Want
             to Read List</button>
     </div>
     <div class="video">
@@ -107,6 +102,11 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
     </div>
+    <%if (found) { %>
+        <div style="position: fixed;color: red;left:30px ;top: 520px;">
+    <p>  This book already exists in your list !!</p>
+        </div>
+    <% } %>
 </body>
 
 </html>
