@@ -51,6 +51,9 @@
         #my {
             zoom: 110%;
         }
+        #book_name {
+            display: none;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,12 +91,21 @@
         classic.
     </div>
     <div class="readlist">
-        <button id="readlist" class="btn btn-secondary ml-3" onclick="addToReadList('mockingbird')">Add to Want to Read
+        <form method="POST" action="/addbook"  >
+            <input type="text" id="book_name" name="bookName" value="mockingbird" readonly>
+		
+        <button id="readlist" class="btn btn-secondary ml-3" type="submit">Add to Want to Read
             List</button>
+        </form>
     </div>
     <div class="video">
         <iframe width="480" height="360" src="https://www.youtube.com/embed/dkVo2VVeu-4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <%if (found) { %>
+        <div style="position: fixed;color: red;left:30px ;top: 520px;">
+    <p>  This book already exists in your list !!</p>
+        </div>
+    <% } %>
 </body>
 
 </html>

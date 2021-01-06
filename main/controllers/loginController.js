@@ -6,7 +6,7 @@ function loginController(req, res) {
     const user = req.body;
     if (authenticateCredentials(user)) {
         res.cookie("username", user.username);
-        res.render('home', { authorized: true });
+        res.redirect('home');
     }
     else {
         res.render('login', { alertDiv: true })
